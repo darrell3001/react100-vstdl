@@ -13,7 +13,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-// import "./App.css";
+import "./app.css";
 
 var todoItems = [];
 todoItems.push({ index: 1, value: "learn react", priority: 1, done: false });
