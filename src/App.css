@@ -12,11 +12,19 @@ code {
     monospace;
 }
 
-html,
 body {
   height: 100%;
-  color: green;
-  background: #2d2d2d;
+  color: black;
+
+  background: #3a7bd5;
+  background: -webkit-linear-gradient(to right, #79a8c0, #3a7bd5);
+  background: linear-gradient(to right, #79a8c0, #3a7bd5);
+  margin: 100px;
+}
+
+.form-h1 {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 h1 {
@@ -37,16 +45,30 @@ ul > li:hover {
   background-color: #f5f5f5;
 }
 
+.bg-light-blue {
+  background-color: lightblue;
+}
+
 .form-inline .form-control {
   width: 50%;
   margin-left: 80px;
 }
 
 .done {
-  color: red;
   text-decoration: line-through;
 }
 
+.high {
+  color: red;
+}
+
+.medium {
+  color: orange;
+}
+
+.low {
+  color: green;
+}
 .undone {
   color: #61dafb;
 }
