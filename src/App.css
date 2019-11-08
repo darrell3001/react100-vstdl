@@ -62,12 +62,12 @@ ul > li:hover {
 }
 
 .high {
-  background-color: rgb(243, 223, 223);
+  background-color: rgb(236, 177, 177);
   color: rgb(162, 64, 59);
 }
 
 .medium {
-  background-color: rgb(246, 243, 223);
+  background-color: rgb(240, 207, 168);
   color: orange;
 }
 

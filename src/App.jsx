@@ -138,6 +138,7 @@ class TodoListForm extends Component {
             removeItem={this.props.removeItem}
             markTodoDone={this.props.markTodoDone}
             startUpdate={this.props.startUpdate}
+            cancelUpdate={this.props.cancelUpdate}
             updateItem={this.props.updateItem}
             priorityOptions={this.props.priorityOptions}
           />
@@ -189,6 +190,7 @@ class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.startUpdate = this.startUpdate.bind(this);
+    this.cancelUpdate = this.cancelUpdate.bind(this);
     this.updateItem = this.updateItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -202,8 +204,12 @@ class TodoApp extends Component {
 
   startUpdate(itemIndex) {
     console.log("startUpdate");
-    console.log(itemIndex);
     this.setState({ updateInProgress: true, itemBeingUpdatedIndex: itemIndex });
+  }
+
+  cancelUpdate() {
+    console.log("cancelUpdate");
+    this.setState({ updateInProgress: false, itemBeingUpdatedIndex: null });
   }
 
   updateItem(itemIndex, updatedTodoItem) {
@@ -272,6 +278,7 @@ class TodoApp extends Component {
                 removeItem={this.removeItem}
                 markTodoDone={this.markTodoDone}
                 startUpdate={this.startUpdate}
+                cancelUpdate={this.cancelUpdate}
                 updateInProgress={this.state.updateInProgress}
                 itemBeingUpdatedIndex={this.state.itemBeingUpdatedIndex}
                 priorityOptions={this.props.priorityOptions}
@@ -355,11 +362,17 @@ class TodoListItem extends Component {
 class TodoEditForm extends Component {
   constructor(props) {
     super(props);
+    this.onClickCancelButton = this.onClickCancelButton.bind(this);
     this.onClickSaveButton = this.onClickSaveButton.bind(this);
   }
 
   componentDidMount() {
     this.refs.itemValue.focus();
+  }
+
+  onClickCancelButton(event) {
+    console.log("onClickCancelButton");
+    this.props.cancelUpdate();
   }
 
   onClickSaveButton(event) {
@@ -412,10 +425,18 @@ class TodoEditForm extends Component {
             <Button
               type="button"
               variant="success"
-              className="btn btn-primary float-right"
+              className="btn btn-primary float-right mr-2"
               onClick={e => this.onClickSaveButton(e)}
             >
               Save
+            </Button>
+            <Button
+              type="button"
+              variant="outline-primary"
+              className="btn float-right mr-2"
+              onClick={e => this.onClickCancelButton(e)}
+            >
+              Cancel
             </Button>
           </Form>
         </Card.Body>
