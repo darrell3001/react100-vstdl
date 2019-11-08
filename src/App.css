@@ -58,19 +58,26 @@ ul > li:hover {
   text-decoration: line-through;
 }
 
+.undone {
+}
+
 .high {
-  color: red;
+  background-color: rgb(243, 223, 223);
+  color: rgb(162, 64, 59);
 }
 
 .medium {
+  background-color: rgb(246, 243, 223);
   color: orange;
 }
 
 .low {
-  color: green;
+  background-color: rgb(179, 255, 240);
+  color: rgb(87, 124, 72);
 }
-.undone {
-  color: #61dafb;
+
+.listIcon {
+  background-color: "transparent";
 }
 
 .icon {
